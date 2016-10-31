@@ -39,7 +39,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# API GEMS
+#### API GEMS ###
+
+# Lets you make HTTP requests, converts JSON response to a Hash
+# If we used the built-in Rails HTTP client, we would have to do a lot of the conversion ourselves
 gem 'httparty'
 
 gem 'foundation-rails'
