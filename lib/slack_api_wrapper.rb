@@ -35,6 +35,7 @@ class Slack_Api_Wrapper
   #   response = HTTParty.get(url)
   # end
 
+  # Another way, from textbook circulum 
   def self.sendmsg(channel, msg, token = nil)
   token = TOKEN if token == nil
   puts "Sending message to channel #{channel}: #{msg}"
