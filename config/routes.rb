@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'homepages/index'
+  root to: 'homepages#index'
 
-  get 'homepages/new'
 
-  get 'homepages/create'
+  get '/new/:name/:id' => 'homepages#new', as: 'new_message'
+
+  post '/create' => 'homepages#create', as: 'create-message'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

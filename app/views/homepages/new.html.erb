@@ -1,7 +1,8 @@
 
 <h1>Send Message to <%= @channel %> </h1>
 
-<%= form_tag homepages_path, method: "post" do %>
+<!-- Because we don't have an Active Record model, we cannot use form_for  -->
+<%= form_tag create_message_path, method: "post" do %>
   <%= label_tag :message, "Message" %>
   <%= text_field_tag :message %>
   <%= hidden_field_tag :channel, @channel_id %>
