@@ -29,10 +29,26 @@ class Slack_Api_Wrapper
     return my_channels
   end
 
-  def self.send_message(channel, msg)
-    url = BASE_URL + "chat.postMessage?token=#{TOKEN}" + "&text=#{msg}" + "&channel=#{channel}"
+  # def self.send_message(channel, msg)
+  #   url = BASE_URL + "chat.postMessage?token=#{TOKEN}" + "&text=#{msg}" + "&channel=#{channel}"
+  #
+  #   response = HTTParty.get(url)
+  # end
 
-    response = HTTParty.get(url)
-  end
+  def self.sendmsg(channel, msg, token = nil)
+  token = TOKEN if token == nil
+  puts "Sending message to channel #{channel}: #{msg}"
+
+  url = BASE_URL + "chat.postMessage?" + "token=#{token}"
+  data = HTTParty.post(url,
+  body:  {
+    "text" => "#{msg}",
+    "channel" => "#{channel}",
+    "username" => "Hankey",
+    "icon_emoji" => ":hankey:",
+    "as_user" => "false"
+  },
+  :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
+end
 
 end
