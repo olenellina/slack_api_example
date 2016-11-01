@@ -2,21 +2,21 @@
 #require "channel"
 
 
-def self.sendmsg(channel, msg, token = nil)
-  token = TOKEN if token == nil
-  puts "Sending message to channel #{channel}: #{msg}"
-
-  url = BASE_URL + "chat.postMessage?" + "token=#{token}"
-  data = HTTParty.post(url,
-  body:  {
-    "text" => "#{msg}",
-    "channel" => "#{channel}",
-    "username" => "Roberts-Robit",
-    "icon_emoji" => ":robot_face:",
-    "as_user" => "false"
-  },
-  :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
-end
+# def self.sendmsg(channel, msg, token = nil)
+#   token = TOKEN if token == nil
+#   puts "Sending message to channel #{channel}: #{msg}"
+#
+#   url = BASE_URL + "chat.postMessage?" + "token=#{token}"
+#   data = HTTParty.post(url,
+#   body:  {
+#     "text" => "#{msg}",
+#     "channel" => "#{channel}",
+#     "username" => "Roberts-Robit",
+#     "icon_emoji" => ":robot_face:",
+#     "as_user" => "false"
+#   },
+#   :headers => { 'Content-Type' => 'application/x-www-form-urlencoded' })
+# end
 
 class HomepagesController < ApplicationController
   def index
